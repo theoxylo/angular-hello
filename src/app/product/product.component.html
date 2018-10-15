@@ -1,0 +1,12 @@
+<div>
+  product component
+  <div>
+    title: '{{title}}'
+  </div>
+  <div>
+    name: '{{name}}'
+  </div>
+  <div (click)="handleClick($event)">click</div>
+  <ng-content> <!-- no other content allowed here but comment or whitespace--> </ng-content>
+  <ng-content><!-- second ng-content is ignored --></ng-content>
+</div>
