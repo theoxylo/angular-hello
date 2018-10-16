@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-view1',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class View1Component implements OnInit {
 
-  constructor() { }
+  keyVal;
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.keyVal = this.route.snapshot.paramMap.get('key');
   }
 
 }
