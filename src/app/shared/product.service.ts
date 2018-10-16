@@ -5,6 +5,15 @@ import {Injectable} from '@angular/core';
 })
 export class ProductService {
 
+  testData = [
+    {id: 0, name: 'Sam'},
+    {id: 1, name: 'Jill'}
+  ];
+
   constructor() {
+  }
+
+  getData() {
+    return this.testData;
   }
 }

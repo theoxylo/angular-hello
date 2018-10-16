@@ -1,8 +1,7 @@
 <div>
   <h1>Welcome to {{ theTitle }}!</h1>
   <app-product [title]="theTitle" name=" testing " (date)="onNewDate($event)">
-    <div>Some app-product child content, but style comes from parent...</div>
-    <div>Note the blue border and smaller width</div>
+    <div>Some app-product child content from the parent using ng-content in child, but styles comes from parent...</div>
     <div>
       <button (click)="testMethod($event)">Bindings also from parent</button>
       title: {{theTitle}}

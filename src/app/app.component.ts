@@ -9,7 +9,7 @@ export class AppComponent {
   theTitle = 'hello-cli';
 
   onNewDate(ts) {
-    console.log('new date: ' + ts);
+    console.log('new ts event from child: ' + ts);
     this.theTitle = ts;
   }
 
