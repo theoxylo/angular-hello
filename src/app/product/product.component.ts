@@ -15,12 +15,16 @@ export class ProductComponent implements OnInit {
   ajaxTitle: string;
   ajaxTitle2: string;
   http;
+  productService;
+  products;
 
   constructor(productService: ProductService, http: HttpService) {
+    this.productService = productService;
     this.http = http;
   }
 
   ngOnInit() {
+    this.products = this.productService.getProducts();
     this.getAjaxData('https://jsonplaceholder.typicode.com/posts/1');
     this.getAjaxData2('https://jsonplaceholder.typicode.com/posts/1');
   }

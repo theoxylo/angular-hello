@@ -6,7 +6,7 @@
   <div>
     name from simple input prop attribute using setter: '{{name}}'
     <br/> Data from injected product service:
-    <li *ngFor="let each of data">{{each.name}}</li>
+    <li *ngFor="let each of products">{{each.name}}</li>
   </div>
   <div (click)="handleClick($event)">click to emit ts event</div>
   <ng-content> <!-- no other content allowed here but comment or whitespace--> </ng-content>
