@@ -17,6 +17,7 @@ export class HttpService {
   getContent2(url: string) {
     return this.http.get(url).pipe(
       retry(3),
+      tap(result => console.log(result)),
       catchError(error => {
         console.log(`error: ${error.message}`);
         return of({title: `[error ${error.status}]`});

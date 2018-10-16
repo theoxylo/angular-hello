@@ -22,7 +22,7 @@ export class ProductComponent implements OnInit {
 
   ngOnInit() {
     this.getAjaxData('https://jsonplaceholder.typicode.com/posts/1');
-    this.getAjaxData2('https://jsonplaceholder.typicode.com/postsx/1');
+    this.getAjaxData2('https://jsonplaceholder.typicode.com/posts/1');
   }
 
   getAjaxData(url: string) {
