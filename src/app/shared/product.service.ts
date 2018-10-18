@@ -4,6 +4,7 @@ import {Injectable} from '@angular/core';
   providedIn: 'root'
 })
 export class ProductService {
+  title;
 
   testData = [
     {id: 0, name: 'Good Book'},
@@ -15,5 +16,13 @@ export class ProductService {
 
   getProducts() {
     return this.testData;
+  }
+
+  getTitle() {
+    return this.title;
+  }
+
+  setTitle(t) {
+    this.title = t;
   }
 }

@@ -1,13 +1,17 @@
-<div>
-  <h1>Welcome to {{ theTitle }}!</h1>
+<h1>Welcome to {{ theTitle }}!</h1>
+<div class="left">
   <app-product [title]="theTitle" name=" testing " (date)="onNewDate($event)">
     <div>Some app-product child content from the parent using ng-content in child, but styles comes from parent...</div>
     <div>
       <button (click)="testMethod($event)">Bindings also from parent</button>
-      title: {{theTitle}}
+      <span>title: {{theTitle}}</span>
     </div>
   </app-product>
-    <a routerLink="/view1">View 1</a> | <a routerLink="/view1/someValue">View 1 Param</a> | <a routerLink="/view2">View 2</a> | <a routerLink="/">Hide</a>
+</div>
+<div class="routed">
+  <a routerLink="/view1">View 1</a> |
+  <a routerLink="/view1/someValue">View 1 Param</a> |
+  <a routerLink="/view2">View 2</a> |
+  <a routerLink="/">Hide</a>
   <router-outlet></router-outlet>
 </div>
-

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ProductService} from '../shared/product.service';
 
 @Component({
   selector: 'app-view2',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class View2Component implements OnInit {
 
-  constructor() { }
+  title;
 
-  ngOnInit() {
+  constructor(private productService: ProductService) {
   }
 
+  ngOnInit() {
+    this.title = this.productService.getTitle();
+  }
 }

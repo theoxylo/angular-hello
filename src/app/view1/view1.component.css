@@ -2,3 +2,7 @@ p {
   background-color: cadetblue;
   color: white;
 }
+.error {
+  color: red;
+  padding: 10px;
+}

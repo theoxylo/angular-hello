@@ -1,3 +1,10 @@
 <p>
   view1 works! {{keyVal}}
 </p>
+<form #titleForm="ngForm">
+  <div>
+    Title*: <input type="text" name="title" [(ngModel)]="model.title" #el1="ngModel" required/>
+    <span class="error" [hidden]="el1.valid || el1.pristine">entry not valid</span>
+  </div>
+  <button (click)="onSubmit(); titleForm.reset()" [disabled]="!titleForm.form.valid">Submit</button>
+</form>

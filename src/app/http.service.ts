@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { catchError, retry, map, tap} from 'rxjs/operators';
-import {Observable, of} from 'rxjs';
-import { AjaxResult } from './ajaxResult';
+import { catchError, retry, map, tap } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { Message } from './message';
 
 @Injectable({
   providedIn: 'root'
@@ -15,14 +15,13 @@ export class HttpService {
     return fetch(url);
   }
 
-  getContent2(url: string): Observable<AjaxResult> {
-    return this.http.get<AjaxResult>(url).pipe(
+  getContent2(url: string): Observable<Message> {
+    return this.http.get<Message>(url).pipe(
       retry(3),
       tap(result => console.log(result)),
       catchError(error => {
         console.log(`error: ${error.message}`);
-        const result = new AjaxResult();
-        result.title = `[error ${error.status}]`;
+        const result = new Message(`[error ${error.status}]`);
         return of(result);
       })
     );
