@@ -1,8 +1,12 @@
-p {
+p.header {
   background-color: cadetblue;
   color: white;
 }
 .error {
   color: red;
   padding: 10px;
+}
+
+div {
+  border: dashed 1px red;
 }
