@@ -10,7 +10,7 @@
     <span>Data from injected product service:</span>
     <li *ngFor="let each of products">{{each.name}}</li>
   </div>
-  <div (click)="handleClick($event)">click to emit ts event</div>
+  <div (click)="handleClick($event)">click to emit 'date' event</div>
   <ng-content> <!-- no other content allowed here but comment or whitespace--> </ng-content>
   <ng-content><!-- second ng-content is ignored --></ng-content>
   <div>ajax title: {{ajaxTitle}}</div>

@@ -1,6 +1,7 @@
 import {Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
 import {ProductService} from '../shared/product.service';
 import {HttpService} from '../http.service';
+import {environment} from '../../environments/environment';
 
 @Component({
   selector: 'app-product',
@@ -18,6 +19,8 @@ export class ProductComponent implements OnInit {
   productService;
   products;
 
+  url = environment.url;
+
   constructor(productService: ProductService, http: HttpService) {
     this.productService = productService;
     this.http = http;
@@ -25,8 +28,8 @@ export class ProductComponent implements OnInit {
 
   ngOnInit() {
     this.products = this.productService.getProducts();
-    this.getAjaxData('https://jsonplaceholder.typicode.com/posts/1');
-    this.getAjaxData2('https://jsonplaceholder.typicode.com/posts/1');
+    this.getAjaxData(this.url);
+    this.getAjaxData2(this.url);
   }
 
   getAjaxData(url: string) {

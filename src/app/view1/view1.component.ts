@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {Message} from '../message';
+import {IMessage, Message} from '../message';
 import {ProductService} from '../shared/product.service';
 
 @Component({
@@ -12,7 +12,7 @@ export class View1Component implements OnInit {
 
   keyVal;
 
-  model = new Message('title');
+  model: IMessage = new Message('title');
 
   submitted = false;
 
