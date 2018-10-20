@@ -3,14 +3,14 @@
 </p>
 <a routerLink="/view2">Go View 2</a>
 <div>
-  <form #titleForm="ngForm">
+  <form #productForm="ngForm">
     <p>
-      Title*: <input type="text" name="title" [(ngModel)]="title" #el1="ngModel" required/>
+      Product*: <input type="text" name="product" [(ngModel)]="product" #el1="ngModel" required/>
       <span class="error" [hidden]="el1.valid || el1.pristine">entry not valid</span>
     </p>
-    <button (click)="onSubmit(); titleForm.reset()" [disabled]="!titleForm.form.valid">Submit</button>
+    <button (click)="onSubmit(); productForm.reset()" [disabled]="!productForm.form.valid">Submit</button>
   </form>
 </div>
-<app-product [title]="title" name=" some name " (date)="title = $event">
+<app-product [title]="product" name=" some name " (date)="product = $event">
   <div>some parent content</div>
 </app-product>

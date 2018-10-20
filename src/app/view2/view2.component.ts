@@ -8,12 +8,12 @@ import {ProductService} from '../shared/product.service';
 })
 export class View2Component implements OnInit {
 
-  title;
+  product;
 
   constructor(private productService: ProductService) {
   }
 
   ngOnInit() {
-    this.title = this.productService.getTitle();
+    this.product = this.productService.getProduct();
   }
 }

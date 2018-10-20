@@ -50,9 +50,9 @@ export class ProductComponent implements OnInit {
 
   getAjaxData2(url: string) {
     this.http.getContent2(url)
-      .subscribe(msg => {
-        console.log(`ajax title 2: ${msg.title}`);
-        this.ajaxTitle2 = msg.title;
+      .subscribe(title => {
+        console.log(`ajax title 2: ${title}`);
+        this.ajaxTitle2 = title;
       });
   }
 

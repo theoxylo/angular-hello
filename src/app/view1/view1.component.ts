@@ -9,19 +9,19 @@ import {ProductService} from '../shared/product.service';
 })
 export class View1Component implements OnInit {
 
-  title: string;
+  product: string;
 
   constructor(private route: ActivatedRoute, private productService: ProductService) {
   }
 
   ngOnInit() {
-    this.title = this.route.snapshot.paramMap.get('key');
-    if (!this.title) { this.title = this.productService.getTitle(); }
+    this.product = this.route.snapshot.paramMap.get('key');
+    if (!this.product) { this.product = this.productService.getProduct(); }
   }
 
   onSubmit() {
-    this.productService.setTitle(this.title);
-    this.title = '';
+    this.productService.setProduct(this.product);
+    this.product = '';
   }
 
 }
