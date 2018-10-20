@@ -5,12 +5,12 @@
 <div>
   <form #titleForm="ngForm">
     <p>
-      Title*: <input type="text" name="title" [(ngModel)]="model.title" #el1="ngModel" required/>
+      Title*: <input type="text" name="title" [(ngModel)]="title" #el1="ngModel" required/>
       <span class="error" [hidden]="el1.valid || el1.pristine">entry not valid</span>
     </p>
     <button (click)="onSubmit(); titleForm.reset()" [disabled]="!titleForm.form.valid">Submit</button>
   </form>
 </div>
-<app-product [title]="model.title" name=" some name " (date)="model.title = $event">
+<app-product [title]="title" name=" some name " (date)="title = $event">
   <div>some parent content</div>
 </app-product>

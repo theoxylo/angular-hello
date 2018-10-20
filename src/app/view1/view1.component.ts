@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {IMessage, Message} from '../message';
 import {ProductService} from '../shared/product.service';
 
 @Component({
@@ -10,24 +9,19 @@ import {ProductService} from '../shared/product.service';
 })
 export class View1Component implements OnInit {
 
-  keyVal;
-
-  model: IMessage = new Message('title');
-
-  submitted = false;
+  title: string;
 
   constructor(private route: ActivatedRoute, private productService: ProductService) {
   }
 
   ngOnInit() {
-    this.keyVal = this.route.snapshot.paramMap.get('key');
-    this.model.title = this.keyVal;
+    this.title = this.route.snapshot.paramMap.get('key');
+    if (!this.title) { this.title = this.productService.getTitle(); }
   }
 
   onSubmit() {
-    this.submitted = true;
-    this.productService.setTitle(this.model.title);
-    this.model.title = '';
+    this.productService.setTitle(this.title);
+    this.title = '';
   }
 
 }
