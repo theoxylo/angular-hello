@@ -1,18 +1,28 @@
-<div class="product">
-  product component
-  <div>
-    title from bound input prop attribute: '{{title}}'
+<div fxLayout="row">
+  <div fxFlex></div>
+  <div fxFlex="300px">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>product component</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div>
+          title from bound input prop attribute: '{{title}}'
+        </div>
+        <div>
+          name from simple input prop attribute using setter: '{{name}}'
+        </div>
+        <div>
+          <span>Data from injected product service:</span>
+          <li *ngFor="let each of products">{{each.name}}</li>
+        </div>
+        <div (click)="handleClick($event)">click to emit 'date' event</div>
+        <ng-content> <!-- no other content allowed here but comment or whitespace--> </ng-content>
+        <ng-content><!-- second ng-content is ignored --></ng-content>
+        <div>ajax title: {{ajaxTitle}}</div>
+        <div>ajax title 2: {{ajaxTitle2}}</div>
+      </mat-card-content>
+    </mat-card>
   </div>
-  <div>
-    name from simple input prop attribute using setter: '{{name}}'
-  </div>
-  <div>
-    <span>Data from injected product service:</span>
-    <li *ngFor="let each of products">{{each.name}}</li>
-  </div>
-  <div (click)="handleClick($event)">click to emit 'date' event</div>
-  <ng-content> <!-- no other content allowed here but comment or whitespace--> </ng-content>
-  <ng-content><!-- second ng-content is ignored --></ng-content>
-  <div>ajax title: {{ajaxTitle}}</div>
-  <div>ajax title 2: {{ajaxTitle2}}</div>
+  <div fxFlex></div>
 </div>

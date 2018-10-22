@@ -8,6 +8,10 @@ import {ProductComponent} from './product/product.component';
 import {AppRoutingModule} from './app-routing.module';
 import {View1Component} from './view1/view1.component';
 import {View2Component} from './view2/view2.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatCardModule} from '@angular/material';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +24,10 @@ import {View2Component} from './view2/view2.component';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,16 +1,17 @@
-<p class="header">
-  view1 works! {{keyVal}}
-</p>
-<a routerLink="/view2">Go View 2</a>
-<div>
-  <form #productForm="ngForm">
-    <p>
-      Product*: <input type="text" name="product" [(ngModel)]="product" #el1="ngModel" required/>
-      <span class="error" [hidden]="el1.valid || el1.pristine">entry not valid</span>
-    </p>
-    <button (click)="onSubmit(); productForm.reset()" [disabled]="!productForm.form.valid">Submit</button>
-  </form>
-</div>
+<mat-card>
+  <p class="header">view1 works! {{keyVal}}</p>
+  <a routerLink="/view2">Go View 2</a>
+  <div class="margin">
+    <form #productForm="ngForm">
+      <p>
+        Product*: <input type="text" name="product" [(ngModel)]="product" #el1="ngModel" required/>
+        <span class="error" [hidden]="el1.valid || el1.pristine">entry not valid</span>
+      </p>
+      <button (click)="onSubmit(); productForm.reset()" [disabled]="!productForm.form.valid">Submit</button>
+    </form>
+  </div>
+</mat-card>
+<p></p>
 <app-product [title]="product" name=" some name " (date)="product = $event">
   <div>some parent content</div>
 </app-product>

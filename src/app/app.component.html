@@ -1,18 +1,25 @@
-<h1>Welcome to {{ theTitle }}!</h1>
-<div class="left">
-  <app-product [title]="theTitle" name=" testing " (date)="onNewDate($event)">
-    <div>Some app-product child content from the parent using ng-content in child, but styles comes from parent...</div>
-    <div>
-      <button (click)="testMethod($event)">Bindings also from parent</button>
-      <span>title: {{theTitle}}</span>
-    </div>
-  </app-product>
+<mat-toolbar>Welcome to {{ theTitle }}!</mat-toolbar>
+<div class="border left">
+  <mat-toolbar>Single Component</mat-toolbar>
+    <p></p>
+    <app-product [title]="theTitle" name=" testing " (date)="onNewDate($event)">
+      <div>Some app-product child content from the parent using ng-content in child, but styles comes from parent...
+      </div>
+      <div>
+        <button (click)="testMethod($event)">Bindings also from parent</button>
+        <span>title: {{theTitle}}</span>
+      </div>
+    </app-product>
 </div>
-<div class="routed">
-  <a routerLink="/view1">View 1</a> |
-  <a routerLink="/view1/someValue">View 1 Param</a> |
-  <a routerLink="/view2">View 2</a> |
-  <a routerLink="/">Hide</a>
+
+<div class="border right">
+  <mat-toolbar>
+    <a routerLink="/view1">View 1</a> |
+    <a routerLink="/view1/someValue">View 1 Param</a> |
+    <a routerLink="/view2">View 2</a> |
+    <a routerLink="/">Hide</a>
+  </mat-toolbar>
+  <p></p>
   <router-outlet></router-outlet>
 </div>
 

@@ -1,11 +1,11 @@
-div {
+div.border {
   border: solid 1px blue;
   text-align: center;
   margin: 10px;
   padding: 10px;
 }
 
-.routed {
+.right {
   float: right;
   width: 46%;
   display: inline-block;

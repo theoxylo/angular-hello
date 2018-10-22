@@ -9,4 +9,5 @@ p.header {
 
 div {
   border: dashed 1px red;
+  margin: 10px;
 }
