@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup} from '@angular/forms';
 import {ProductService} from '../shared/product.service';
 
 @Component({
@@ -10,10 +11,16 @@ export class View2Component implements OnInit {
 
   product;
 
+  name = new FormControl();
+
   constructor(private productService: ProductService) {
   }
 
   ngOnInit() {
     this.product = this.productService.getProduct();
+  }
+
+  resetName() {
+    this.name.setValue('');
   }
 }

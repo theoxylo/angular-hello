@@ -1,3 +1,9 @@
 p {
-  background-color: greenyellow;
+  background-color: lightcyan;
+}
+div {
+  padding: 10px;
+}
+label {
+  display: block;
 }

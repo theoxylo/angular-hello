@@ -4,7 +4,17 @@
   <div>product: {{product}}</div>
 </mat-card>
 <p></p>
+
 <mat-card>
-  <div>reactive form example</div>
+  <p>reactive form control example</p>
+  <label>
+    Name:
+    <input type="text" [formControl]="name">
+  </label>
+  <div> Value: {{ name.value }}</div>
+  <div>
+    <button (click)="resetName()">reset</button>
+  </div>
 </mat-card>
+<p></p>
 
