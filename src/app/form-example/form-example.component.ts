@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-form-example',
@@ -8,8 +8,9 @@ import {FormControl, FormGroup} from '@angular/forms';
 })
 export class FormExampleComponent implements OnInit {
 
+  /*
   profileForm = new FormGroup({
-    firstName: new FormControl('test'),
+    firstName: new FormControl(''),
     lastName: new FormControl(''),
     address: new FormGroup({
       street: new FormControl(''),
@@ -18,11 +19,34 @@ export class FormExampleComponent implements OnInit {
       zip: new FormControl('')
     })
   });
+  */
+  // using FormBuilder service:
+  profileForm = this.fb.group({
+    firstName: [''],
+    lastName: [''],
+    address: this.fb.group({
+      street: [''],
+      city: [''],
+      state: [''],
+      zip: ['']
+    }),
+  });
 
-  constructor() {
+  constructor(private fb: FormBuilder) {
   }
 
   ngOnInit() {
+  }
+
+  onResetAddress() {
+    this.profileForm.patchValue({
+      address: {
+        street: '123 Main St',
+        city: 'Anytown',
+        state: 'CA',
+        zip: '12345'
+      }
+    });
   }
 
   onResetProfile() {
@@ -52,6 +76,6 @@ export class FormExampleComponent implements OnInit {
   }
 
   onSubmitProfile() {
-    console.log(this.profileForm.value);
+    console.log('submitted: ' + JSON.stringify(this.profileForm.value));
   }
 }

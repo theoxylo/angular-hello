@@ -29,9 +29,11 @@
       </label>
     </div>
     <button type="button" (click)="onResetProfile()">Reset</button>
+    <button type="button" (click)="onResetAddress()">Reset Address</button>
     <button type="button" (click)="onClearProfile()">Clear</button>
     <button type="submit" [disabled]="!profileForm.valid">Submit</button>
   </form>
+  <p></p>
   <div>
     Form values: {{profileForm.value | json}}
   </div>
