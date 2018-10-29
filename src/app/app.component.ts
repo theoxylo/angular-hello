@@ -7,6 +7,7 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
   theTitle = 'hello-cli';
+  isBordered = false;
 
   onNewDate(ts) {
     console.log('new ts event from child: ' + ts);

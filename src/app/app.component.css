@@ -1,5 +1,8 @@
 div.border {
   border: solid 1px blue;
+}
+
+div.align {
   text-align: center;
   margin: 10px;
   padding: 10px;
