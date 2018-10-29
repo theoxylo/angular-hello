@@ -1,28 +1,38 @@
 import {Injectable} from '@angular/core';
+import {IProduct} from '../iproduct';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
-  product;
+  currentProduct: IProduct;
 
-  testData = [
-    {id: 0, name: 'Good Book'},
-    {id: 1, name: 'Small Key'}
+  id = 0;
+
+  products: IProduct[] = [
+    {id: this.id++, name: 'Good Book'},
+    {id: this.id++, name: 'Small Key'}
   ];
 
   constructor() {
   }
 
-  getProducts() {
-    return this.testData;
+  getProducts(): IProduct[] {
+    return this.products;
   }
 
-  getProduct() {
-    return this.product;
+  getProduct(name) {
+    this.currentProduct = this.products.find(each => each.name === name);
+    return this.currentProduct;
   }
 
-  setProduct(t) {
-    this.product = t;
+  addNewProduct(name) {
+    this.currentProduct = {id: this.id++, name: name};
+    this.products.push(this.currentProduct);
+  }
+
+  getProductById(id) {
+    this.currentProduct = this.products.find(each => each.id === id);
+    return this.currentProduct;
   }
 }

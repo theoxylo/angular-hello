@@ -16,18 +16,13 @@ export class ProductComponent implements OnInit {
   ajaxTitle: string;
   ajaxTitle2: string;
   http;
-  productService;
-  products;
-
   url = environment.url;
 
-  constructor(productService: ProductService, http: HttpService) {
-    this.productService = productService;
+  constructor(http: HttpService) {
     this.http = http;
   }
 
   ngOnInit() {
-    this.products = this.productService.getProducts();
     this.getAjaxData(this.url);
     this.getAjaxData2(this.url);
   }

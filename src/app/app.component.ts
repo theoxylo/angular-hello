@@ -13,7 +13,7 @@ export class AppComponent {
     this.theTitle = ts;
   }
 
-  testMethod(e) {
+  onTest(e) {
     this.theTitle = (new Date()).toLocaleTimeString();
     console.log(e);
   }

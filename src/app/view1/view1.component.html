@@ -4,7 +4,7 @@
   <div class="margin">
     <form #productForm="ngForm">
       <p>
-        Product*: <input type="text" name="product" [(ngModel)]="product" #el1="ngModel" required/>
+        Product*: <input type="text" name="product" [(ngModel)]="product.name" #el1="ngModel" required/>
         <span class="error" [hidden]="el1.valid || el1.pristine">entry not valid</span>
       </p>
       <button (click)="onSubmit(); productForm.reset()" [disabled]="!productForm.form.valid">Submit</button>

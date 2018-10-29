@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {ProductService} from '../shared/product.service';
+import {IProduct} from '../iproduct';
 
 @Component({
   selector: 'app-view1',
@@ -9,19 +10,23 @@ import {ProductService} from '../shared/product.service';
 })
 export class View1Component implements OnInit {
 
-  product: string;
+  product: IProduct;
+  products;
 
   constructor(private route: ActivatedRoute, private productService: ProductService) {
   }
 
   ngOnInit() {
-    this.product = this.route.snapshot.paramMap.get('key');
-    if (!this.product) { this.product = this.productService.getProduct(); }
+    const productName = this.route.snapshot.paramMap.get('key');
+    if (productName) { this.product = this.productService.getProduct(productName); }
+    if (!this.product) { this.product = {id: 0, name: productName}; }
+
+    this.products = this.productService.getProducts();
   }
 
   onSubmit() {
-    this.productService.setProduct(this.product);
-    this.product = '';
+    this.productService.addNewProduct(this.product.name);
+    this.product.name = '';
   }
 
 }

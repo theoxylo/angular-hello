@@ -10,6 +10,7 @@ import {ProductService} from '../shared/product.service';
 export class View2Component implements OnInit {
 
   product;
+  products;
 
   name = new FormControl();
 
@@ -17,10 +18,14 @@ export class View2Component implements OnInit {
   }
 
   ngOnInit() {
-    this.product = this.productService.getProduct();
+    this.products = this.productService.getProducts();
   }
 
   resetName() {
     this.name.setValue('');
+  }
+
+  onSelectById(id) {
+    this.productService.getProductById(id);
   }
 }
