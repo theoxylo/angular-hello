@@ -11,7 +11,7 @@ import {IProduct} from '../iproduct';
 export class View1Component implements OnInit {
 
   product: IProduct;
-  products;
+  products: IProduct[];
 
   constructor(private route: ActivatedRoute, private productService: ProductService) {
   }
