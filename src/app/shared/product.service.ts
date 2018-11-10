@@ -5,13 +5,12 @@ import {IProduct} from '../iproduct';
   providedIn: 'root'
 })
 export class ProductService {
-  currentProduct: IProduct;
 
   id = 0;
 
   products: IProduct[] = [
     {id: this.id++, name: 'Good Book'},
-    {id: this.id++, name: 'Small Key'}
+    {id: this.id++, name: 'Bad Book'}
   ];
 
   constructor() {
@@ -21,18 +20,12 @@ export class ProductService {
     return this.products;
   }
 
-  getProduct(name) {
-    this.currentProduct = this.products.find(each => each.name === name);
-    return this.currentProduct;
-  }
-
   addNewProduct(name) {
-    this.currentProduct = {id: this.id++, name: name};
-    this.products.push(this.currentProduct);
+    const new_product = {id: this.id++, name: name};
+    this.products.unshift(new_product);
   }
 
   getProductById(id) {
-    this.currentProduct = this.products.find(each => each.id === id);
-    return this.currentProduct;
+    return this.products.find(each => each.id === id);
   }
 }

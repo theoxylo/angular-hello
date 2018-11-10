@@ -9,10 +9,8 @@
         <div>
           title from bound input prop attribute: '{{title}}'
         </div>
-        <div>
-          name from simple input prop attribute using setter: '{{name}}'
-        </div>
-        <div (click)="handleClick($event)">click to emit 'date' event</div>
+        <div>timestamp: {{ts}}</div>
+        <button type="button" (click)="handleClick($event)">Update Timestamp</button>
         <ng-content> <!-- no other content allowed here but comment or whitespace--> </ng-content>
         <ng-content><!-- second ng-content is ignored --></ng-content>
         <div>ajax title: {{ajaxTitle}}</div>

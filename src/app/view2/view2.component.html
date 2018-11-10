@@ -2,7 +2,9 @@
   <a routerLink="/view1">Go View 1</a>
   <div>
     <span>Products:</span>
-    <p *ngFor="let each of products"><span (click)="onSelectById(each.id)">{{each.name}}</span></p>
+    <li *ngFor="let each of products">
+      <span (click)="onSelectById(each.id)">{{each.name}}</span>
+    </li>
   </div>
 </mat-card>
 <p></p>

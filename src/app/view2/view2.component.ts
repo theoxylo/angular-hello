@@ -26,6 +26,6 @@ export class View2Component implements OnInit {
   }
 
   onSelectById(id) {
-    this.productService.getProductById(id);
+    console.log(this.productService.getProductById(id));
   }
 }

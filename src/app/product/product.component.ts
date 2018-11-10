@@ -11,6 +11,7 @@ import {environment} from '../../environments/environment';
 export class ProductComponent implements OnInit {
 
   private _name = '';
+  ts = Date.now();
   @Input() public title: string;
   @Output() private date: EventEmitter<number> = new EventEmitter<number>();
   ajaxTitle: string;
@@ -54,16 +55,7 @@ export class ProductComponent implements OnInit {
   handleClick(e) {
     console.log(e);
     console.log('click event available here, but custom event emmitted to parent below');
-    this.date.emit(Date.now());
+    this.ts = Date.now();
+    this.date.emit(this.ts);
   }
-
-  @Input()
-  set name(name: string) {
-    this._name = (name && name.trim()) || '<no name set>';
-  }
-
-  get name(): string {
-    return this._name;
-  }
-
 }
