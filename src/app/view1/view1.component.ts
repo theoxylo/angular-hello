@@ -14,8 +14,8 @@ export class View1Component implements AfterViewInit, OnInit {
   products: IProduct[];
   filtered_products: IProduct[];
   private _filter: string;
-  ts;
   search = '';
+  ts;
 
   @ViewChild('filterInput') filterRef: ElementRef;
 

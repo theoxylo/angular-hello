@@ -1,8 +1,9 @@
 <mat-card>
   <a routerLink="/view1">Go View 1</a>
   <div>
-    <span>Products:</span>
-    <li *ngFor="let each of products">
+    <app-filter-search (filter)="onFilter($event)"></app-filter-search>
+    <span>Filtered Products:</span>
+    <li *ngFor="let each of filtered_products">
       <span (click)="onSelectById(each.id)">{{each.name}}</span>
     </li>
   </div>

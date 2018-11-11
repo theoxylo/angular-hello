@@ -14,6 +14,7 @@ import {View1Component} from './view1/view1.component';
 import {View2Component} from './view2/view2.component';
 import { FormExampleComponent } from './form-example/form-example.component';
 import { ViewAjaxComponent } from './view-ajax/view-ajax.component';
+import { FilterSearchComponent } from './filter-search/filter-search.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { ViewAjaxComponent } from './view-ajax/view-ajax.component';
     View1Component,
     View2Component,
     FormExampleComponent,
-    ViewAjaxComponent
+    ViewAjaxComponent,
+    FilterSearchComponent
   ],
   imports: [
     BrowserModule,

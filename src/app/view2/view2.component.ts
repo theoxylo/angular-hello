@@ -9,8 +9,8 @@ import {ProductService} from '../shared/product.service';
 })
 export class View2Component implements OnInit {
 
-  product;
   products;
+  filtered_products;
 
   name = new FormControl();
 
@@ -19,6 +19,7 @@ export class View2Component implements OnInit {
 
   ngOnInit() {
     this.products = this.productService.getProducts();
+    this.filtered_products = this.products;
   }
 
   resetName() {
@@ -27,5 +28,11 @@ export class View2Component implements OnInit {
 
   onSelectById(id) {
     console.log(this.productService.getProductById(id));
+  }
+
+  onFilter(filter: string) {
+    this.filtered_products = this.products.filter(product => {
+      return product.name.toLowerCase().indexOf(filter) >= 0;
+    });
   }
 }
