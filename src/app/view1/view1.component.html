@@ -1,18 +1,22 @@
-<mat-card>
-  <a routerLink="/view2">Go View 2</a>
-  <div class="margin">
-    <form #productForm="ngForm">
-      <p>
-        Product*: <input type="text" name="product" [(ngModel)]="new_product.name" #el1="ngModel" required/>
-        <span class="error" [hidden]="el1.valid || el1.pristine">entry not valid</span>
-      </p>
-      <button (click)="onSubmit(); productForm.reset()" [disabled]="!productForm.form.valid">Submit</button>
-    </form>
-  </div>
-  <div class="margin">
-    Filter: <input type="text" [(ngModel)]="filter"/>
-  </div>
-</mat-card>
+<div>
+  <mat-card>
+    <a routerLink="/view2">Go View 2</a>
+    <div class="margin">
+      <form #productForm="ngForm">
+        <p>
+          Product name*: <input type="text" name="product" [(ngModel)]="new_product.name" #el1="ngModel" required/>
+          <span class="error" [hidden]="el1.valid || el1.pristine">entry not valid</span>
+          <button (click)="onSubmit(); productForm.reset()" [disabled]="!productForm.form.valid">Add Product</button>
+        </p>
+      </form>
+    </div>
+    <div class="margin">
+      Filter: <input type="text" [(ngModel)]="filter" #filterInput/>
+      Search: <input type="text" [(ngModel)]="search"/>
+      <button (click)="onSearch()">Go</button>
+    </div>
+  </mat-card>
+</div>
 
 <p *ngIf="ts">product timestamp updated to {{ts}}</p>
 

@@ -12,15 +12,15 @@ export class HttpService {
   constructor(private http: HttpClient) {
   }
 
-  getContent(url: string): Promise<Response> {
+  getContentPromise(url: string): Promise<Response> {
     return fetch(url);
   }
 
-  getContent2(url: string): Observable<string> {
+  getContentObservable(url: string): Observable<string> {
     return this.http.get<IMessage>(url).pipe(
       retry(3),
       map (msg => msg.title),
-      tap(result => console.log(result)),
+      tap(result => console.log('tap: ' + result)),
       catchError(error => {
         console.log(`error: ${error.message}`);
         return of(`[error ${error.status}]`);

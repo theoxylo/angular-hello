@@ -9,12 +9,11 @@
         <div>
           title from bound input prop attribute: '{{title}}'
         </div>
-        <div>timestamp: {{ts}}</div>
-        <button type="button" (click)="handleClick($event)">Update Timestamp</button>
+        <div>timestamp: {{ts}}
+          <button type="button" (click)="handleClick($event)">Update Timestamp</button>
+        </div>
         <ng-content> <!-- no other content allowed here but comment or whitespace--> </ng-content>
         <ng-content><!-- second ng-content is ignored --></ng-content>
-        <div>ajax title: {{ajaxTitle}}</div>
-        <div>ajax title 2: {{ajaxTitle2}}</div>
       </mat-card-content>
     </mat-card>
   </div>

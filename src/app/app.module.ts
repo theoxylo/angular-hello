@@ -13,6 +13,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {View1Component} from './view1/view1.component';
 import {View2Component} from './view2/view2.component';
 import { FormExampleComponent } from './form-example/form-example.component';
+import { ViewAjaxComponent } from './view-ajax/view-ajax.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { FormExampleComponent } from './form-example/form-example.component';
     ProductComponent,
     View1Component,
     View2Component,
-    FormExampleComponent
+    FormExampleComponent,
+    ViewAjaxComponent
   ],
   imports: [
     BrowserModule,

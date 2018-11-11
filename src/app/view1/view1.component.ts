@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {ProductService} from '../shared/product.service';
 import {IProduct} from '../iproduct';
@@ -8,19 +8,22 @@ import {IProduct} from '../iproduct';
   templateUrl: './view1.component.html',
   styleUrls: ['./view1.component.css']
 })
-export class View1Component implements OnInit {
+export class View1Component implements AfterViewInit, OnInit {
 
   new_product: IProduct;
   products: IProduct[];
   filtered_products: IProduct[];
   private _filter: string;
   ts;
+  search = '';
+
+  @ViewChild('filterInput') filterRef: ElementRef;
 
   constructor(private route: ActivatedRoute, private productService: ProductService) {
   }
 
   ngOnInit() {
-    this.new_product = {name: ''};
+    this.new_product = {id: 0, name: ''};
 
     this.products = this.productService.getProducts();
     this.filtered_products = this.products;
@@ -31,11 +34,16 @@ export class View1Component implements OnInit {
     }
   }
 
+  ngAfterViewInit() {
+    this.filterRef.nativeElement.focus();
+  }
+
   onSubmit() {
     this.productService.addNewProduct(this.new_product.name);
     this.new_product.name = '';
     this._filter = '';
-    this.filterProducts();
+    this.filterProducts(this._filter);
+    this.filterRef.nativeElement.focus();
   }
 
   get filter() {
@@ -43,14 +51,17 @@ export class View1Component implements OnInit {
   }
 
   set filter(name: string) {
-    console.log('setting name: ' + name);
     this._filter = name.toLowerCase();
-    this.filterProducts();
+    this.filterProducts(this._filter);
   }
 
-  filterProducts() {
-    this.filtered_products = this.products.filter(prod => {
-      return prod.name.toLowerCase().indexOf(this._filter) >= 0;
+  filterProducts(filter: string) {
+    this.filtered_products = this.products.filter(product => {
+      return product.name.toLowerCase().indexOf(filter) >= 0;
     });
+  }
+
+  onSearch() {
+    this.filterProducts(this.search);
   }
 }

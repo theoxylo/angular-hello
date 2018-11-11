@@ -8,10 +8,8 @@ div.align {
   padding: 10px;
 }
 
-.right {
-  float: right;
-  width: 46%;
-  display: inline-block;
+.main {
+  width: 100%;
 }
 
 .left {
