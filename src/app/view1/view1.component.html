@@ -10,11 +10,9 @@
         </p>
       </form>
     </div>
-    <div class="margin">
-      Filter: <input type="text" [(ngModel)]="filter" #filterInput/>
-      Search: <input type="text" [(ngModel)]="search"/>
-      <button (click)="onSearch()">Go</button>
-    </div>
+    <app-filter-search (filter)="onFilter($event)"
+                       (search)="onSearch($event)">
+    </app-filter-search>
   </mat-card>
 </div>
 

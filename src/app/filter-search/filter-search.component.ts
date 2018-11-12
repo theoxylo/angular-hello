@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, EventEmitter, Output, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, EventEmitter, Input, Output, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-filter-search',
@@ -7,9 +7,12 @@ import {AfterViewInit, Component, ElementRef, EventEmitter, Output, ViewChild} f
 })
 export class FilterSearchComponent implements AfterViewInit {
 
-  private _filterString: string;
+  private _filterString = '';
+  private _searchString = '';
+
   @ViewChild('filterInput') filterRef: ElementRef;
   @Output() filter: EventEmitter<string> = new EventEmitter<string>();
+  @Output() search: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() {
   }
@@ -19,12 +22,24 @@ export class FilterSearchComponent implements AfterViewInit {
   }
 
   get filterString() {
-    return this._filter;
+    return this._filterString;
   }
 
   set filterString(filter: string) {
-    this._filter = filter.toLowerCase();
-    this.filter.emit(this._filter);
+    this._filterString = filter.toLowerCase();
+    this.filter.emit(this._filterString);
   }
 
+  get searchString() {
+    return this._searchString;
+  }
+
+  set searchString(search: string) {
+    this._searchString = search.toLowerCase();
+  }
+
+  doSearch() {
+    this.search.emit(this._searchString);
+    this._filterString = '';
+  }
 }

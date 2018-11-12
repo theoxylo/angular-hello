@@ -35,4 +35,9 @@ export class View2Component implements OnInit {
       return product.name.toLowerCase().indexOf(filter) >= 0;
     });
   }
+
+  onSearch(search: string) {
+    this.onFilter(search);
+  }
+
 }

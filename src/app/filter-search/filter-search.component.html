@@ -1,4 +1,6 @@
 <div class="margin">
   Filter: <input type="text" [(ngModel)]="filterString" #filterInput/>
+  Search: <input type="text" [(ngModel)]="searchString"/>
+  <button (click)="doSearch()">Search</button>
 </div>
 
