@@ -7,7 +7,6 @@ import {Component, Input, Output, EventEmitter, OnInit} from '@angular/core';
 })
 export class ProductComponent implements OnInit {
 
-  private _name = '';
   ts = Date.now();
   @Input() public title: string;
   @Output() private date: EventEmitter<number> = new EventEmitter<number>();
